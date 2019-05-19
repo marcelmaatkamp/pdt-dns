@@ -1,0 +1,8 @@
+version: '3'
+services:
+
+ dns:
+  build: .
+  ports: 
+   - "53:53/udp"
+
