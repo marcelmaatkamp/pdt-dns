@@ -1,0 +1,31 @@
+{
+  "name": "pdt-dns",
+  "description": "dns in node",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "lint": "./node_modules/.bin/eslint /application",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marcelmaatkamp/pdt-dns.git"
+  },
+  "keywords": [],
+  "author": "Marcel Maatkamp <m.maatkamp@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marcelmaatkamp/pdt-dns/issues"
+  },
+  "homepage": "",
+  "dependencies": {
+    "native-dns": "0.7.0",
+    "amqp-ts": "1.5.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.1.0",
+    "eslint-config-strongloop": "^2.1.0",
+    "lint": "^0.7.0"
+  }
+}

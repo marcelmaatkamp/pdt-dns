@@ -1,24 +1,16 @@
-FROM alpine:3.5 AS base
-RUN apk add --no-cache nodejs-current tini
+FROM node:12.7.0-alpine as base
 WORKDIR /application
-ENTRYPOINT ["/sbin/tini", "--"]
+# RUN npm set progress=false && npm config set depth 0
 COPY package.json .
 
-FROM base AS dependencies
-RUN npm set progress=false && npm config set depth 0
-RUN npm install --only=production 
-RUN cp -R node_modules prod_node_modules
-RUN npm install
-
-FROM dependencies AS test
-COPY . .
+FROM base AS test_dependencies
+COPY . .eslintrc.js ./
 RUN \
- npm run lint &&\
- npm run setup &&\
+ npm install &&\
  npm run test
 
-FROM base AS release
-COPY --from=dependencies /application/prod_node_modules ./node_modules
-COPY . .
+FROM base AS dependencies
+COPY application .
+RUN npm install --only=production
 EXPOSE 53
-CMD npm run start
+CMD ["server"]

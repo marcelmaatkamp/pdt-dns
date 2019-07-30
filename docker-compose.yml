@@ -2,7 +2,7 @@ version: '3.4'
 services:
 
  dns:
-  build: .
+  build: pdt-dns
   ports: 
    - "53:53/udp"
 
