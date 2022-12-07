@@ -26,6 +26,6 @@
   "devDependencies": {
     "eslint": "^6.1.0",
     "eslint-config-strongloop": "^2.1.0",
-    "lint": "^0.7.0"
+    "lint": "^0.8.8"
   }
 }
